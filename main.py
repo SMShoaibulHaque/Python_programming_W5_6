@@ -5,15 +5,22 @@ def showOptions():
     print("2 - Increase count")
     print("3 - Reset count")
     print("0 - Exit")
+    return None
+
 
 def askChoice():
     choice = input("Your choice: ")
 
     if choice.isnumeric():
-        return int(choice)
+        try:
+            return int(choice)
+        except ValueError:
+            print("Unknown option!")
+            return -1
     else:
         print("Unknown option!")
         return -1
+
 
 def main():
     count = 0
@@ -43,9 +50,10 @@ def main():
         elif choice != -1:
             print("Unknown option!")
 
+        print()
+
     print("\nProgram ending.")
 
 
 if __name__ == "__main__":
     main()
-
